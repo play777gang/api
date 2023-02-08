@@ -1,5 +1,4 @@
 anyio==3.6.2
-astroid==2.11.7
 certifi==2022.12.7
 cffi==1.15.1
 charset-normalizer==3.0.1
