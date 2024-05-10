@@ -32,8 +32,8 @@ def main():
 
     log(f'Generated random id: {device_id}')
 
-    cpf = 18341606771
-    password = "em88005424"
+    cpf = input(f'[>] Enter your CPF(Numbers only): ')
+    password = getpass('[>] Enter your password (Used on the app/website): ')
 
     generator = CertificateGenerator(cpf, password, device_id)
 
