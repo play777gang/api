@@ -363,31 +363,6 @@ def obter_perfilcompleto(cpf: str, senha: str, certificado: str):
 
 
 
-@app.get("/trans/{cpf}/{senha}/{certificado}")
-def trans(cpf: str, senha: str, certificado: str):
-    nu = Nubank()
-    nu.authenticate_with_cert(cpf, senha, certificado)
-    
-    try:
-        card_statements = nu.get_card_statements()
-        card_statement_details = nu.get_card_statement_details(card_statements[0])
-        total_transactions = sum([t['amount'] for t in card_statements])
-        bills = nu.get_bills()
-        bill_details = nu.get_bill_details(bills[1])
-        
-        return {
-            "card_statements": card_statements,
-            "card_statement_details": card_statement_details,
-            "total_transactions": total_transactions,
-            "bills": bills,
-            "bill_details": bill_details
-        }
-    
-    except Exception as e:
-        raise HTTPException(status_code=500, detail="Internal server error")
-
-
-
 
 
  
